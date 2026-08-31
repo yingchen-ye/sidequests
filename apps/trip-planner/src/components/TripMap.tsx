@@ -33,6 +33,22 @@ function collectPins(days: DayPlan[]): Pin[] {
           detail: booking.address,
         });
       }
+      if (booking.departureCoordinates) {
+        pins.push({
+          key: `b-${dayIndex}-${i}-dep`,
+          position: booking.departureCoordinates,
+          label: `${booking.name} — departure`,
+          detail: booking.departureLocation,
+        });
+      }
+      if (booking.arrivalCoordinates) {
+        pins.push({
+          key: `b-${dayIndex}-${i}-arr`,
+          position: booking.arrivalCoordinates,
+          label: `${booking.name} — arrival`,
+          detail: booking.arrivalLocation,
+        });
+      }
     });
     day.experiences.forEach((experience, i) => {
       if (experience.coordinates) {
