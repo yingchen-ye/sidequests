@@ -3,8 +3,8 @@ import { CompassIcon } from "./icons";
 
 export default function ExperienceItem({ experience }: { experience: Experience }) {
   return (
-    <div className="card experience-card">
-      <div className="card-icon">
+    <div className="card experience-card type-experience">
+      <div className="card-icon type-experience">
         <CompassIcon />
       </div>
       <div className="card-body">

@@ -1,14 +1,25 @@
 :root {
-  --bg: #12142b;
-  --surface: #1c1f3d;
-  --surface-raised: #242863;
-  --border: #2a2e57;
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --surface-raised: #eef0fb;
+  --border: #dcdce8;
   --accent: #e2483d;
-  --accent-soft: #f0a04b;
-  --text: #eceaf5;
-  --text-muted: #9a9dc2;
+  --accent-soft: #d9781f;
+  --text: #1c1f33;
+  --text-muted: #6b6f8f;
 
-  color-scheme: dark;
+  --type-transportation: #2a78d6;
+  --type-hotel: #eb6834;
+  --type-restaurant: #1baf7a;
+  --type-experience: #eda100;
+
+  /* darkened per-type text on light tints; keeps hue identity at ≥4.5:1 */
+  --type-transportation-text: color-mix(in srgb, var(--type-transportation) 95%, black);
+  --type-hotel-text: color-mix(in srgb, var(--type-hotel) 80%, black);
+  --type-restaurant-text: color-mix(in srgb, var(--type-restaurant) 75%, black);
+  --type-experience-text: color-mix(in srgb, var(--type-experience) 65%, black);
+
+  color-scheme: light;
 }
 
 * {
@@ -77,6 +88,63 @@ body {
   color: white;
 }
 
+.category-tabs {
+  padding-top: 0;
+}
+
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.category-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.category-pill.type-transportation .category-dot {
+  background: var(--type-transportation);
+}
+
+.category-pill.type-hotel .category-dot {
+  background: var(--type-hotel);
+}
+
+.category-pill.type-restaurant .category-dot {
+  background: var(--type-restaurant);
+}
+
+.category-pill.type-experience .category-dot {
+  background: var(--type-experience);
+}
+
+.category-pill.type-transportation.is-active {
+  background: var(--type-transportation);
+  border-color: var(--type-transportation);
+}
+
+.category-pill.type-hotel.is-active {
+  background: var(--type-hotel);
+  border-color: var(--type-hotel);
+}
+
+.category-pill.type-restaurant.is-active {
+  background: var(--type-restaurant);
+  border-color: var(--type-restaurant);
+}
+
+.category-pill.type-experience.is-active {
+  background: var(--type-experience);
+  border-color: var(--type-experience);
+}
+
+.category-pill.is-active .category-dot {
+  background: white;
+}
+
 .app-main {
   flex: 1;
   overflow-y: auto;
@@ -137,8 +205,29 @@ body {
   gap: 0.75rem;
   background: var(--surface);
   border: 1px solid var(--border);
+  border-left: 3px solid transparent;
   border-radius: 14px;
   padding: 0.85rem 1rem;
+}
+
+.card.type-transportation {
+  background: color-mix(in srgb, var(--type-transportation) 8%, var(--surface));
+  border-left-color: var(--type-transportation);
+}
+
+.card.type-hotel {
+  background: color-mix(in srgb, var(--type-hotel) 8%, var(--surface));
+  border-left-color: var(--type-hotel);
+}
+
+.card.type-restaurant {
+  background: color-mix(in srgb, var(--type-restaurant) 8%, var(--surface));
+  border-left-color: var(--type-restaurant);
+}
+
+.card.type-experience {
+  background: color-mix(in srgb, var(--type-experience) 10%, var(--surface));
+  border-left-color: var(--type-experience);
 }
 
 .card-icon {
@@ -153,6 +242,26 @@ body {
   color: var(--accent-soft);
 }
 
+.card-icon.type-transportation {
+  background: color-mix(in srgb, var(--type-transportation) 22%, white);
+  color: var(--type-transportation-text);
+}
+
+.card-icon.type-hotel {
+  background: color-mix(in srgb, var(--type-hotel) 22%, white);
+  color: var(--type-hotel-text);
+}
+
+.card-icon.type-restaurant {
+  background: color-mix(in srgb, var(--type-restaurant) 22%, white);
+  color: var(--type-restaurant-text);
+}
+
+.card-icon.type-experience {
+  background: color-mix(in srgb, var(--type-experience) 24%, white);
+  color: var(--type-experience-text);
+}
+
 .card-body {
   flex: 1;
   min-width: 0;
@@ -161,12 +270,46 @@ body {
 .card-title-row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 0.5rem;
 }
 
 .card-title {
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+.card-title-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+}
+
+.leg-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.leg-badge.type-transportation {
+  background: color-mix(in srgb, var(--type-transportation) 16%, white);
+  color: var(--type-transportation-text);
+}
+
+.leg-badge.type-hotel {
+  background: color-mix(in srgb, var(--type-hotel) 16%, white);
+  color: var(--type-hotel-text);
+}
+
+.leg-badge-inline {
+  margin-right: 0.4rem;
 }
 
 .card-cost {
@@ -183,8 +326,23 @@ body {
 
 .card-confirmation {
   font-size: 0.75rem;
-  color: var(--accent-soft);
   margin-top: 0.3rem;
+}
+
+.card-confirmation.type-transportation {
+  color: var(--type-transportation-text);
+}
+
+.card-confirmation.type-hotel {
+  color: var(--type-hotel-text);
+}
+
+.card-confirmation.type-restaurant {
+  color: var(--type-restaurant-text);
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .card-notes {
@@ -263,7 +421,7 @@ body {
   bottom: 0;
   display: flex;
   border-top: 1px solid var(--border);
-  background: rgba(18, 20, 43, 0.92);
+  background: rgba(247, 247, 251, 0.92);
   backdrop-filter: blur(8px);
   padding: 0.6rem 1.25rem calc(0.6rem + env(safe-area-inset-bottom));
   gap: 0.5rem;

@@ -18,6 +18,26 @@ export function RestaurantIcon() {
   );
 }
 
+export function PlaneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <path d="M10.5 20.5 12 17l-3-1-1.5 1.5-1-.5.5-2-2-1v-1l8-2.5L18 5c.6-.6 1.6-.6 2 0 .4.4.4 1.2 0 1.8l-4.5 5.7-2.5 8-1.5-1-.5-2.5Z" />
+    </svg>
+  );
+}
+
+export function TrainIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <rect x="5" y="3" width="14" height="13" rx="4" />
+      <path d="M5 11h14M9 3v8M15 3v8" />
+      <path d="m8 20-2.5 2M16 20l2.5 2" />
+      <circle cx="8.5" cy="13.5" r="0.6" fill="currentColor" />
+      <circle cx="15.5" cy="13.5" r="0.6" fill="currentColor" />
+    </svg>
+  );
+}
+
 export function CompassIcon() {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.6">
