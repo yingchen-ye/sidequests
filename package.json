@@ -1,0 +1,9 @@
+{
+  "name": "sidequests",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev:trip-planner": "pnpm --filter trip-planner dev",
+    "build:trip-planner": "pnpm --filter trip-planner build"
+  }
+}
