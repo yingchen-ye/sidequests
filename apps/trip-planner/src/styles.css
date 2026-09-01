@@ -52,6 +52,18 @@ body {
   padding: 1.25rem 1.25rem 0.5rem;
 }
 
+.back-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
 .app-title {
   font-family: "Fraunces", serif;
   font-weight: 600;

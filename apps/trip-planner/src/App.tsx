@@ -47,6 +47,9 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
+        <a className="back-link" href="../">
+          ← Side Quests
+        </a>
         <h1 className="app-title">{trip.name}</h1>
       </header>
 
