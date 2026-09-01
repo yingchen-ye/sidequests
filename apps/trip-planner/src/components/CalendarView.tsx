@@ -127,10 +127,14 @@ export default function CalendarView({ days, dayNumberFor }: CalendarViewProps) 
         (days.length > 0 ? (
           <div className="calendar-day-list">
             {days.map((day) => (
-              <button key={day.date + day.city} className="calendar-day-row" onClick={() => setSelected(day)}>
+              <button
+                key={day.date + day.cities.join(",")}
+                className="calendar-day-row"
+                onClick={() => setSelected(day)}
+              >
                 <div className="calendar-day-row-head">
                   <span className="calendar-day-row-date">{formatShort(day.date)}</span>
-                  <span className="calendar-day-row-city">{day.city}</span>
+                  <span className="calendar-day-row-city">{day.cities.join(" → ")}</span>
                 </div>
                 <ItemChips day={day} wrap />
               </button>
