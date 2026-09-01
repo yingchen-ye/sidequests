@@ -6,8 +6,9 @@ import CategoryTabs from "./components/CategoryTabs";
 import DayCard from "./components/DayCard";
 import TripMap from "./components/TripMap";
 import ExpensesSummary from "./components/ExpensesSummary";
+import CalendarView from "./components/CalendarView";
 
-type Tab = "itinerary" | "map" | "expenses";
+type Tab = "itinerary" | "calendar" | "map" | "expenses";
 
 function filterDayByCategory(day: DayPlan, category: CardCategory | null): DayPlan {
   if (!category) return day;
@@ -72,6 +73,9 @@ export default function App() {
             ))}
           </div>
         )}
+        {tab === "calendar" && (
+          <CalendarView days={days} dayNumberFor={(date) => dayNumberFor(date, tripStartDate)} />
+        )}
         {tab === "map" && <TripMap days={days} />}
         {tab === "expenses" && <ExpensesSummary days={trip.days} />}
       </main>
@@ -79,6 +83,9 @@ export default function App() {
       <nav className="bottom-nav">
         <button className={tab === "itinerary" ? "is-active" : ""} onClick={() => setTab("itinerary")}>
           Itinerary
+        </button>
+        <button className={tab === "calendar" ? "is-active" : ""} onClick={() => setTab("calendar")}>
+          Calendar
         </button>
         <button className={tab === "map" ? "is-active" : ""} onClick={() => setTab("map")}>
           Map

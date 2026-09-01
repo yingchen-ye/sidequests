@@ -63,6 +63,15 @@ export const trip: Trip = {
           nightIndex: 1,
           nightsTotal: 2,
         },
+        {
+          type: "restaurant",
+          name: "Duck de Chine",
+          address: "98 Jinbao Street, Dongcheng, Beijing, China",
+          coordinates: { lat: 39.914843406727755, lng: 116.42067582747129 },
+          time: "19:00",
+          confirmationNumber: "RXVK654D3M949",
+          cost: { amount: 500, currency: "CNY" },
+        }
       ],
       experiences: [],
       expenses: [
@@ -87,15 +96,6 @@ export const trip: Trip = {
           nightsTotal: 2,
           cost: { amount: 344/2, currency: "CNY" },
         },
-        {
-          type: "restaurant",
-          name: "Duck de Chine",
-          address: "98 Jinbao Street, Dongcheng, Beijing, China",
-          coordinates: { lat: 39.914843406727755, lng: 116.42067582747129 },
-          time: "19:00",
-          confirmationNumber: "RXVK654D3M949",
-          cost: { amount: 500, currency: "CNY" },
-        },
       ],
       experiences: [
         {
@@ -106,7 +106,7 @@ export const trip: Trip = {
         },
         {
           title: "Great Wall (Mutianyu)",
-          time: "08:00",
+          time: "13:00",
           coordinates: { lat: 40.4319, lng: 116.5704 },
         },
       ],
