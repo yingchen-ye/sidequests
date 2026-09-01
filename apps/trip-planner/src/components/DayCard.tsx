@@ -17,7 +17,7 @@ export default function DayCard({ day, dayNumber }: { day: DayPlan; dayNumber: n
       <header className="day-header">
         <span className="day-number">Day {dayNumber}</span>
         <span className="day-date">{formatDate(day.date)}</span>
-        <span className="day-city">{day.city}</span>
+        <span className="day-city">{day.cities.join(" → ")}</span>
       </header>
       <div className="day-items">
         {day.bookings.map((booking, i) => (

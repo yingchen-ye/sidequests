@@ -20,6 +20,8 @@ export interface Booking {
   /** hotels/restaurants only */
   address?: string;
   coordinates?: Coordinates;
+  /** city coordinates belongs to, for map filtering by city */
+  city?: string;
   /** ISO date, hotels only */
   checkIn?: string;
   /** ISO date, hotels only */
@@ -41,6 +43,8 @@ export interface Booking {
   /** airport or station name */
   departureLocation?: string;
   departureCoordinates?: Coordinates;
+  /** city departureCoordinates belongs to, for map filtering by city */
+  departureCity?: string;
   /** ISO date, transportation only */
   departureDate?: string;
   /** e.g. "20:30", transportation only */
@@ -48,6 +52,8 @@ export interface Booking {
   /** airport or station name */
   arrivalLocation?: string;
   arrivalCoordinates?: Coordinates;
+  /** city arrivalCoordinates belongs to, for map filtering by city */
+  arrivalCity?: string;
   /** ISO date, transportation only */
   arrivalDate?: string;
   /** e.g. "12:45", transportation only */
@@ -60,6 +66,8 @@ export interface Experience {
   time?: string;
   description?: string;
   coordinates?: Coordinates;
+  /** city coordinates belongs to, for map filtering by city */
+  city?: string;
 }
 
 export type ExpenseCategory =
@@ -79,7 +87,8 @@ export interface Expense {
 export interface DayPlan {
   /** ISO date, e.g. "2026-10-12" */
   date: string;
-  city: string;
+  /** one entry normally; two for a travel day spanning cities, e.g. ["Beijing", "Chengdu"] */
+  cities: string[];
   bookings: Booking[];
   experiences: Experience[];
   expenses: Expense[];

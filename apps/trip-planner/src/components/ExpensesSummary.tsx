@@ -9,13 +9,14 @@ interface LineItem {
 function collectLineItems(days: DayPlan[]): LineItem[] {
   const items: LineItem[] = [];
   for (const day of days) {
+    const city = day.cities.join(" → ");
     for (const expense of day.expenses) {
-      items.push({ city: day.city, category: expense.category, cost: expense.cost });
+      items.push({ city, category: expense.category, cost: expense.cost });
     }
     for (const booking of day.bookings) {
       if (booking.cost) {
         items.push({
-          city: day.city,
+          city,
           category: booking.type === "hotel" ? "lodging" : "food",
           cost: booking.cost,
         });

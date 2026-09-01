@@ -21,11 +21,11 @@ interface Pin {
   detail?: string;
 }
 
-function collectPins(days: DayPlan[]): Pin[] {
+function collectPins(days: DayPlan[], selectedCity: string | null): Pin[] {
   const pins: Pin[] = [];
   days.forEach((day, dayIndex) => {
     day.bookings.forEach((booking, i) => {
-      if (booking.coordinates) {
+      if (booking.coordinates && (!selectedCity || !booking.city || booking.city === selectedCity)) {
         pins.push({
           key: `b-${dayIndex}-${i}`,
           position: booking.coordinates,
@@ -33,7 +33,7 @@ function collectPins(days: DayPlan[]): Pin[] {
           detail: booking.address,
         });
       }
-      if (booking.departureCoordinates) {
+      if (booking.departureCoordinates && (!selectedCity || booking.departureCity === selectedCity)) {
         pins.push({
           key: `b-${dayIndex}-${i}-dep`,
           position: booking.departureCoordinates,
@@ -41,7 +41,7 @@ function collectPins(days: DayPlan[]): Pin[] {
           detail: booking.departureLocation,
         });
       }
-      if (booking.arrivalCoordinates) {
+      if (booking.arrivalCoordinates && (!selectedCity || booking.arrivalCity === selectedCity)) {
         pins.push({
           key: `b-${dayIndex}-${i}-arr`,
           position: booking.arrivalCoordinates,
@@ -51,7 +51,10 @@ function collectPins(days: DayPlan[]): Pin[] {
       }
     });
     day.experiences.forEach((experience, i) => {
-      if (experience.coordinates) {
+      if (
+        experience.coordinates &&
+        (!selectedCity || !experience.city || experience.city === selectedCity)
+      ) {
         pins.push({
           key: `e-${dayIndex}-${i}`,
           position: experience.coordinates,
@@ -74,8 +77,14 @@ function FitBounds({ pins }: { pins: Pin[] }) {
   return null;
 }
 
-export default function TripMap({ days }: { days: DayPlan[] }) {
-  const pins = collectPins(days);
+export default function TripMap({
+  days,
+  selectedCity = null,
+}: {
+  days: DayPlan[];
+  selectedCity?: string | null;
+}) {
+  const pins = collectPins(days, selectedCity);
   const center: [number, number] = pins.length
     ? [pins[0].position.lat, pins[0].position.lng]
     : [35.0, 105.0];

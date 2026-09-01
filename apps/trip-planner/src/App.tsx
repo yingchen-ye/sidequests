@@ -38,7 +38,7 @@ export default function App() {
   );
 
   const days = useMemo(() => {
-    const cityFiltered = city ? trip.days.filter((d) => d.city === city) : trip.days;
+    const cityFiltered = city ? trip.days.filter((d) => d.cities.includes(city)) : trip.days;
     if (!category) return cityFiltered;
     return cityFiltered
       .map((d) => filterDayByCategory(d, category))
@@ -66,7 +66,7 @@ export default function App() {
           <div className="day-list">
             {days.map((day) => (
               <DayCard
-                key={day.date + day.city}
+                key={day.date + day.cities.join(",")}
                 day={day}
                 dayNumber={dayNumberFor(day.date, tripStartDate)}
               />
@@ -76,7 +76,7 @@ export default function App() {
         {tab === "calendar" && (
           <CalendarView days={days} dayNumberFor={(date) => dayNumberFor(date, tripStartDate)} />
         )}
-        {tab === "map" && <TripMap days={days} />}
+        {tab === "map" && <TripMap days={days} selectedCity={city} />}
         {tab === "expenses" && <ExpensesSummary days={trip.days} />}
       </main>
 
