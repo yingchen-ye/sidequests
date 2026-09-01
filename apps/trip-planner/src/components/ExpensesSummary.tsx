@@ -9,7 +9,8 @@ interface LineItem {
 function collectLineItems(days: DayPlan[]): LineItem[] {
   const items: LineItem[] = [];
   for (const day of days) {
-    const city = day.cities.join(" → ");
+    // for a travel day, cities is ordered [departure, ..., arrival] — attribute spend to the arrival city
+    const city = day.cities[day.cities.length - 1];
     for (const expense of day.expenses) {
       items.push({ city, category: expense.category, cost: expense.cost });
     }
