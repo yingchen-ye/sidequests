@@ -73,18 +73,33 @@ export const trip: Trip = {
           name: "Duck de Chine",
           city: "Beijing",
           address: "98 Jinbao Street, Dongcheng, Beijing, China",
-          coordinates: { lat: 39.914843406727755, lng: 116.42067582747129 },
+          coordinates: { lat: 39.92526332679954, lng: 116.39730463668992 },
           time: "19:00",
           confirmationNumber: "RXVK654D3M949",
           cost: { amount: 500, currency: "CNY" },
         }
       ],
-      experiences: [],
+      experiences: [
+        {
+          title: "Jingshan Park",
+          time: "16:00",
+          description: "Overview of the Forbidden City from the hilltop. Close at 21:00.",
+          city: "Beijing",
+          coordinates: { lat: 39.9163, lng: 116.3972 },
+        },
+        {
+          title: "Sanlitun",
+          time: "21:00",
+          description: "Shopping district with international brands and local cuisine.",
+          city: "Beijing",
+          coordinates: { lat: 39.93795961153561, lng: 116.44924228182367 },
+        },    
+      ],
       expenses: [
         {
-          description: "Airport taxi",
+          description: "Airport High-speed train from Beijing Capital Airport to city center",
           category: "transport",
-          cost: { amount: 120, currency: "CNY" },
+          cost: { amount: 100, currency: "CNY" },
         },
       ],
     },
@@ -113,13 +128,29 @@ export const trip: Trip = {
           coordinates: { lat: 39.9163, lng: 116.3972 },
         },
         {
-          title: "Great Wall (Mutianyu)",
+          title: "Great Wall (Badaling)",
           time: "13:00",
           city: "Beijing",
-          coordinates: { lat: 40.4319, lng: 116.5704 },
+          coordinates: { lat: 40.36308053738535, lng: 115.97868675304231 },
         },
       ],
-      expenses: [],
+      expenses: [
+        {
+          description: "Great Wall (Badaling) entrance fee",
+          category: "activity",
+          cost: { amount: 40, currency: "CNY" },
+        },
+        {
+          description: "Forbidden City entrance fee",
+          category: "activity",
+          cost: { amount: 60, currency: "CNY" },
+        },
+        {
+          description: "transportation",
+          category: "transport",
+          cost: { amount: 100, currency: "CNY" },
+        },
+      ],
     },
     {
       date: "2026-09-20",
@@ -154,8 +185,35 @@ export const trip: Trip = {
         },
       ],
       experiences: [
+        {
+          title: "National Museum of China",
+          time: "09:00 - 12:00",
+          description: "Half day.",
+          city: "Beijing",
+          coordinates: { lat: 39.9163, lng: 116.3972 },
+        },
+        {
+          title: "Skin Care Appointment",
+          time: "13:00 - 15:00",
+          description: "Location TBD. Need to leave at 16:00 the latest.",
+          city: "Beijing",
+          coordinates: { lat: 39.9163, lng: 116.3972 },
+        },
+
       ],
-      expenses: [],
+      expenses: [
+        {
+          description: "Airport High-speed train from Beijing Capital Airport to city center",
+          category: "transport",
+          cost: { amount: 100, currency: "CNY" },
+        },
+        {
+          description: "Skincare appointment",
+          category: "activity",
+          cost: { amount: 300, currency: "CNY" },
+        },
+
+      ],
     },
     {
       date: "2026-09-21",
@@ -176,13 +234,31 @@ export const trip: Trip = {
       experiences: [
         {
           title: "Chengdu Panda Base",
-          time: "07:30",
-          description: "Go early, pandas are most active in the morning.",
+          time: "09:30",
+          description: "My friend will be with us for the day.",
           city: "Chengdu",
           coordinates: { lat: 30.7350, lng: 104.1467 },
         },
+        {
+          title: "Sanxingdui Museum",
+          time: "13:30",
+          description: "My friend will be with us for the day.",
+          city: "Chengdu",
+          coordinates: { lat: 31.010143283166475, lng: 104.22748479470133 },
+        },
       ],
-      expenses: [],
+      expenses: [
+        {
+          description: "Chengdu Panda Base entrance fee",
+          category: "activity",
+          cost: { amount: 55, currency: "CNY" },
+        },
+        {
+          description: "Sanxingdui Museum entrance fee",
+          category: "activity",
+          cost: { amount: 72, currency: "CNY" },
+        },
+      ],
     },
     {
       date: "2026-09-22",
@@ -201,7 +277,15 @@ export const trip: Trip = {
           nightsTotal: 3,
         },
       ],
-      experiences: [],
+      experiences: [
+        {
+          title: "Dujiangyan scenic area",
+          time: "13:30",
+          description: "An old city a bit far from Chengdu. My friend will be with us for the day.",
+          city: "Chengdu",
+          coordinates: { lat: 30.997293875409294, lng: 103.61215795533192},
+        },
+      ],
       expenses: [],
     },
     {
@@ -238,7 +322,15 @@ export const trip: Trip = {
           nightsTotal: 1,
         },
       ],
-      experiences: [],
+      experiences: [
+        {
+          title: "Shopping Area close to Hotel",
+          time: "13:30",
+          description: "Wenshu Yuan Monastery, shopping malls, etc.",
+          city: "Chengdu",
+          coordinates: { lat: 30.67497398215248, lng: 104.07292432045747 },
+        },
+      ],
       expenses: [],
     },
     {
@@ -262,10 +354,10 @@ export const trip: Trip = {
       ],
       experiences: [
         {
-          title: "Mid-autumn Family Dinner",
-          time: "18:00",
+          title: "West Lake Night Walk",
+          time: "20:00",
           city: "Hangzhou",
-          coordinates: { lat: 30.29351788795101, lng: 120.12377940997519},
+          coordinates: { lat: 30.2590, lng: 120.1490 },
         },
       ],
       expenses: [],
@@ -289,7 +381,20 @@ export const trip: Trip = {
           nightsTotal: 3,
         },
       ],
-      experiences: [],
+      experiences: [
+        {
+          title: "Haircut Appointment",
+          time: "13:00",
+          city: "Hangzhou",
+          coordinates: { lat: 30.29351788795101, lng: 120.12377940997519},
+        },        
+        {
+          title: "Mid-autumn Family Dinner",
+          time: "18:00",
+          city: "Hangzhou",
+          coordinates: { lat: 30.29351788795101, lng: 120.12377940997519},
+        },
+      ],
       expenses: [],
     },
     {
@@ -313,10 +418,25 @@ export const trip: Trip = {
       ],
       experiences: [
         {
-          title: "West Lake loop",
+          title: "Lingyin Scenic Area",
+          description: "Visit the famous Lingyin Temple and Faxi Temple. Walk in the Nature.",
           time: "09:00",
           city: "Hangzhou",
-          coordinates: { lat: 30.2590, lng: 120.1490 },
+          coordinates: { lat: 30.24028137017274, lng: 120.10155675749094 },
+        },
+        {
+          title: "Lunch with Yingchen's Friends",
+          description: "TBD",
+          time: "13:00",
+          city: "Hangzhou",
+          coordinates: { lat: 30.24028137017274, lng: 120.10155675749094 },
+        },
+        {
+          title: "Boashi Hill",
+          description: "Overview of the night West Lake. Walk in the Nature.",
+          time: "20:00",
+          city: "Hangzhou",
+          coordinates: { lat: 30.261356180842668, lng: 120.14471262472324 },
         },
       ],
       expenses: [],
