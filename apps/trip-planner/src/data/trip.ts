@@ -122,14 +122,14 @@ export const trip: Trip = {
       experiences: [
         {
           title: "Forbidden City",
-          time: "09:00",
+          time: "09:00-12:00",
           description: "Half day, enter from Meridian Gate.",
           city: "Beijing",
           coordinates: { lat: 39.9163, lng: 116.3972 },
         },
         {
           title: "Great Wall (Badaling)",
-          time: "13:00",
+          time: "14:00-20:00",
           city: "Beijing",
           coordinates: { lat: 40.36308053738535, lng: 115.97868675304231 },
         },
@@ -186,11 +186,11 @@ export const trip: Trip = {
       ],
       experiences: [
         {
-          title: "National Museum of China",
-          time: "09:00 - 12:00",
-          description: "Half day.",
+          title: "Tiananmen Square",
+          time: "10:00 - 11:00",
+          description: "West Redwall gate 01.",
           city: "Beijing",
-          coordinates: { lat: 39.9163, lng: 116.3972 },
+          coordinates: { lat: 39.90566230402953, lng: 116.39814668065449 },
         },
         {
           title: "Skin Care Appointment",
@@ -234,7 +234,7 @@ export const trip: Trip = {
       experiences: [
         {
           title: "Chengdu Panda Base",
-          time: "09:30",
+          time: "09:30-12:00",
           description: "My friend will be with us for the day.",
           city: "Chengdu",
           coordinates: { lat: 30.7350, lng: 104.1467 },
@@ -279,8 +279,8 @@ export const trip: Trip = {
       ],
       experiences: [
         {
-          title: "Dujiangyan scenic area",
-          time: "13:30",
+          title: "Qingchen scenic area",
+          time: "13:30-17:00",
           description: "An old city a bit far from Chengdu. My friend will be with us for the day.",
           city: "Chengdu",
           coordinates: { lat: 30.997293875409294, lng: 103.61215795533192},
@@ -325,7 +325,7 @@ export const trip: Trip = {
       experiences: [
         {
           title: "Shopping Area close to Hotel",
-          time: "13:30",
+          time: "13:30-17:00",
           description: "Wenshu Yuan Monastery, shopping malls, etc.",
           city: "Chengdu",
           coordinates: { lat: 30.67497398215248, lng: 104.07292432045747 },
@@ -355,7 +355,7 @@ export const trip: Trip = {
       experiences: [
         {
           title: "West Lake Night Walk",
-          time: "20:00",
+          time: "20:00-22:00",
           city: "Hangzhou",
           coordinates: { lat: 30.2590, lng: 120.1490 },
         },
@@ -384,13 +384,13 @@ export const trip: Trip = {
       experiences: [
         {
           title: "Haircut Appointment",
-          time: "13:00",
+          time: "13:00-15:00",
           city: "Hangzhou",
           coordinates: { lat: 30.29351788795101, lng: 120.12377940997519},
         },        
         {
           title: "Mid-autumn Family Dinner",
-          time: "18:00",
+          time: "18:00-22:00",
           city: "Hangzhou",
           coordinates: { lat: 30.29351788795101, lng: 120.12377940997519},
         },
@@ -420,21 +420,21 @@ export const trip: Trip = {
         {
           title: "Lingyin Scenic Area",
           description: "Visit the famous Lingyin Temple and Faxi Temple. Walk in the Nature.",
-          time: "09:00",
+          time: "10:00-16:00",
           city: "Hangzhou",
           coordinates: { lat: 30.24028137017274, lng: 120.10155675749094 },
         },
         {
-          title: "Lunch with Yingchen's Friends",
-          description: "TBD",
-          time: "13:00",
+          title: "Dinner with Yingchen's Friends",
+          description: "Beef Hotpot, 德天肥牛",
+          time: "18:00-20:00",
           city: "Hangzhou",
           coordinates: { lat: 30.24028137017274, lng: 120.10155675749094 },
         },
         {
           title: "Boashi Hill",
           description: "Overview of the night West Lake. Walk in the Nature.",
-          time: "20:00",
+          time: "21:00-23:00",
           city: "Hangzhou",
           coordinates: { lat: 30.261356180842668, lng: 120.14471262472324 },
         },
