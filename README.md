@@ -1,21 +1,25 @@
 # sidequests
 
-A small monorepo for personal apps. First one up: **trip-planner**, a mobile
-itinerary for the China trip (Beijing → Chengdu → Shanghai → Hangzhou) with
-hotels, restaurants, day-to-day plans, expenses, and an OpenStreetMap view.
+A small monorepo for personal apps:
+
+- **trip-planner** — a mobile itinerary for the China trip (Beijing → Chengdu →
+  Shanghai → Hangzhou) with hotels, restaurants, day-to-day plans, expenses,
+  and an OpenStreetMap view.
+- **personal-portfolio** — my personal website.
 
 ## Structure
 
 ```
 sidequests/
 ├── apps/
-│   └── trip-planner/     ← itinerary app (Vite + React + TypeScript)
+│   ├── trip-planner/        ← itinerary app (Vite + React + TypeScript)
+│   └── personal-portfolio/  ← personal website
 ├── index.html             ← landing page, links to each app
 └── .github/workflows/     ← builds + deploys everything to GitHub Pages
 ```
 
-Add future apps as new folders under `apps/`, and add a link to them in the
-root `index.html`.
+Add future apps as new folders under `apps/` (the pnpm workspace picks up
+`apps/*` automatically), and add a link to them in the root `index.html`.
 
 ## Local development
 
@@ -23,32 +27,35 @@ Requires [pnpm](https://pnpm.io) (`npm install -g pnpm`) and Node 20+.
 
 ```bash
 pnpm install
-pnpm dev:trip-planner
+pnpm dev:trip-planner        # http://localhost:5173/sidequests/trip-planner/
+pnpm dev:personal-portfolio  # http://localhost:5173/sidequests/personal-portfolio/
 ```
 
-Because of the `base` path set for GitHub Pages, the dev server serves the
-app under a subpath too — open the URL it prints, which will look like
-`http://localhost:5173/sidequests/trip-planner/`.
+Because of the `base` path set for GitHub Pages, the dev server serves each
+app under a subpath too — open the URL it prints.
 
-## Editing your trip data
+The root `index.html` (landing page) is plain static HTML, but its links only
+work once the apps are built. To preview the whole site as it will appear on
+GitHub Pages:
 
-All trip content lives in one file:
-
+```bash
+pnpm preview:site   # builds, assembles into ./site, serves http://localhost:4173/sidequests/
 ```
-apps/trip-planner/src/data/trip.ts
-```
 
-It's currently filled with placeholder dates/hotels/restaurants — replace
-them with your real details (or just tell Claude the updates in chat and
-ask it to regenerate this file). Each day has:
+### Adding a new app
 
-- `bookings` — hotels and restaurants, with address, dates/times,
-  confirmation number, and cost
-- `experiences` — things you're doing that day
-- `expenses` — anything else you spent money on
+1. Create `apps/<name>/` with its own `package.json` (unique `name`),
+   `vite.config.ts`, `index.html`, and `src/` — copy from `trip-planner`.
+2. Set `base: "/sidequests/<name>/"` in its `vite.config.ts`.
+3. Add `dev:<name>` / `build:<name>` scripts to the root `package.json`.
+4. Add a link in the root `index.html`.
+5. In `.github/workflows/deploy.yml`, add a build step
+   (`pnpm --filter <name> build`) and copy `apps/<name>/dist/*` into
+   `site/<name>/` in the "Assemble site" step.
 
-Add `coordinates: { lat, lng }` to any booking or experience to have it show
-up as a pin on the Map tab.
+## App docs
+
+- [trip-planner](apps/trip-planner/README.md) — how to edit the trip data
 
 ## Deploying to GitHub Pages
 
