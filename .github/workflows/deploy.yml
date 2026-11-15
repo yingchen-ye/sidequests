@@ -33,12 +33,17 @@ jobs:
       - name: Build trip-planner
         run: pnpm --filter trip-planner build
 
+      - name: Build personal-portfolio
+        run: pnpm --filter personal-portfolio build
+
       - name: Assemble site
         run: |
           mkdir -p site
           cp index.html site/
           mkdir -p site/trip-planner
           cp -r apps/trip-planner/dist/* site/trip-planner/
+          mkdir -p site/personal-portfolio
+          cp -r apps/personal-portfolio/dist/* site/personal-portfolio/
 
       - uses: actions/upload-pages-artifact@v3
         with:
