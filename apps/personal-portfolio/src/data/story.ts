@@ -7,7 +7,7 @@ export interface Chapter {
 
 export const chapters: Chapter[] = [
   { id: "me", label: "Me · 我" },
-  { id: "poem", label: "First poem" },
+  { id: "poem", label: "How did it start?" },
   { id: "origin", label: "Origin" },
   { id: "salt", label: "Salt" },
   { id: "between", label: "Between" },

@@ -61,11 +61,13 @@ export default function App() {
           <>
             <div className="duo">
               <h1 className="big latin">我</h1>
-              <h1 className="big han">Me</h1>
+              <h1 className="big han">Self</h1>
             </div>
             <p className="quiet">
-              What is it? <em>wǒ</em> — I, me, we, mine, all at
-              once.
+              This project is attempting to answer:
+            </p>
+            <p className="quiet">
+              Who am I? What is wǒ?
             </p>
             <a className="scroll-cue" href="#poem">↓</a>
           </>

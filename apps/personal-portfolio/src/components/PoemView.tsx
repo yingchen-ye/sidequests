@@ -10,6 +10,7 @@ export default function PoemView({ poem }: { poem: Poem }) {
           <p className="trans">{poem.translation[i]}</p>
         </div>
       ))}
+      <p className="cite han">——《{poem.title.zh}》</p>
     </article>
   );
 }

@@ -88,4 +88,7 @@ figcaption { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; }
 .poem .age { font-family: "Caveat", cursive; font-size: 1.3rem; color: var(--accent); margin: 0 0 1.5rem; }
 .pair { margin-bottom: 1.75rem; }
 .orig { font-size: 1.35rem; line-height: 1.8; margin: 0 0 0.35rem; }
-.trans { color: var(--muted); font-style: italic; margin: 0; }
+.trans { color: var(--muted); font-style: italic; margin: 0; white-space: pre-line; }
+
+.orig, .trans { white-space: pre-line; }
+.cite { color: var(--muted); font-size: 0.95rem; text-align: right; margin: 0.5rem 0 0; }
